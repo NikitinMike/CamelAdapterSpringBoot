@@ -22,7 +22,8 @@ public class AdapterRouter extends RouteBuilder {
     restConfiguration()
         .component("jetty")
         .bindingMode(RestBindingMode.json)
-//        .host("localhost").port(8080)
+//        .host("localhost")
+        .port(8080)
         .apiProperty("cors", "true");
 
     from("direct:getmsg")
@@ -41,7 +42,7 @@ public class AdapterRouter extends RouteBuilder {
           }
         });
 
-    from("jetty:http://localhost/adapter")
+    from("jetty:http://0.0.0.0/adapter")
         .unmarshal().json(JsonLibrary.Jackson, MsgA.class)
         .log("ADAPTER< ${body}")
         .to("direct:getlng").filter(body().isNotNull())
@@ -52,8 +53,8 @@ public class AdapterRouter extends RouteBuilder {
         .otherwise()
         .to("direct:message")
         .end()
-//        .marshal().json(JsonLibrary.Jackson, MsgB.class)
-    ;
+        .marshal().json(JsonLibrary.Jackson, String.class)
+        .log("<${body}>");
 
     from("direct:error")
         .setBody(simple("Invalid input message"))

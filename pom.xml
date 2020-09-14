@@ -97,6 +97,10 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-jetty</artifactId>
         </dependency>
         <dependency>
@@ -135,6 +139,58 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.2.8.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-spring-junit5</artifactId>
+            <version>3.6.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <version>2.3.3.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--        <dependency>-->
+<!--            <groupId>org.apache.camel</groupId>-->
+<!--            <artifactId>camel-test</artifactId>-->
+<!--&lt;!&ndash;            <version>${camel.version}</version>&ndash;&gt;-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.camel</groupId>-->
+<!--            <artifactId>camel-test-spring</artifactId>-->
+<!--&lt;!&ndash;            <version>${camel.version}</version>&ndash;&gt;-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.camel</groupId>-->
+<!--            <artifactId>camel-core</artifactId>-->
+<!--&lt;!&ndash;            <version>${camel-version}</version>&ndash;&gt;-->
+<!--            <type>test-jar</type>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.camel</groupId>-->
+<!--            <artifactId>camel-test-spring</artifactId>-->
+<!--            <version>${camel-version}</version>-->
+<!--            <type>test-jar</type>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
     </dependencies>
 </project>
