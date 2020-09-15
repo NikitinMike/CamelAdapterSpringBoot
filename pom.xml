@@ -13,7 +13,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <camel.version>3.6.0-SNAPSHOT</camel.version>
+        <camel.version>3.0.1</camel.version>
         <spring.version>2.2.2.RELEASE</spring.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -67,7 +67,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- Camel BOM -->
+
+<!-- 
             <dependency>
                 <groupId>org.apache.camel.springboot</groupId>
                 <artifactId>camel-spring-boot-dependencies</artifactId>
@@ -75,6 +76,18 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+    <scope>provided</scope>
+ -->
+
+<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring-boot-dependencies -->
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-spring-boot-dependencies</artifactId>
+                <version>${camel.version}</version>
+    <type>pom</type>
+    <scope>provided</scope>
+</dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -82,26 +95,32 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-spring-boot-starter</artifactId>
+                <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-http-starter</artifactId>
+                <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
+                <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jetty</artifactId>
+                <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -112,27 +131,30 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jackson</artifactId>
-            <version>3.6.0-SNAPSHOT</version>
+                <version>${camel.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-http</artifactId>
-            <version>3.6.0-SNAPSHOT</version>
+                <version>${camel.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-undertow</artifactId>
+                <version>${camel.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-activemq-starter</artifactId>
+                <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-activemq</artifactId>
+                <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -154,43 +176,45 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-spring-junit5</artifactId>
-            <version>3.6.0-SNAPSHOT</version>
+                <version>${camel.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
-            <version>2.3.3.RELEASE</version>
+                <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
 
-        <!--        <dependency>-->
-<!--            <groupId>org.apache.camel</groupId>-->
-<!--            <artifactId>camel-test</artifactId>-->
-<!--&lt;!&ndash;            <version>${camel.version}</version>&ndash;&gt;-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.camel</groupId>-->
-<!--            <artifactId>camel-test-spring</artifactId>-->
-<!--&lt;!&ndash;            <version>${camel.version}</version>&ndash;&gt;-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.apache.camel</groupId>-->
-<!--            <artifactId>camel-core</artifactId>-->
-<!--&lt;!&ndash;            <version>${camel-version}</version>&ndash;&gt;-->
-<!--            <type>test-jar</type>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.camel</groupId>-->
-<!--            <artifactId>camel-test-spring</artifactId>-->
-<!--            <version>${camel-version}</version>-->
-<!--            <type>test-jar</type>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
 
     </dependencies>
+
+  <repositories>
+    <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+ 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
+ 
+
 </project>
